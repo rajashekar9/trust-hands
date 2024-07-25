@@ -1,0 +1,9 @@
+runtime: python38
+
+handlers:
+  - url: /
+    static_files: dist/trust-hands/index.html
+    upload: dist/trust-hands/index.html
+
+  - url: /
+    static_dir: dist/trust-hands
