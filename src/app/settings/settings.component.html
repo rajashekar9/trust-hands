@@ -1,0 +1,70 @@
+<div class='container-fluid w-100 h-100'>
+    <!-- <div class='body w-100 h-100'>
+      <div class='row'>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-first-tab" data-toggle="tab" href="#nav-first" role="tab" aria-controls="nav-first" aria-selected="true">First</a>
+            <a class="nav-item nav-link" id="nav-second-tab" data-toggle="tab" href="#nav-second" role="tab" aria-controls="nav-second" aria-selected="false">Second</a>
+            <a class="nav-item nav-link" id="nav-third-tab" data-toggle="tab" href="#nav-third" role="tab" aria-controls="nav-third" aria-selected="false">Third</a>
+          </div>
+        </nav>
+      </div>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
+            This is the content on the second tab
+        </div>
+
+        <div class="tab-pane fade" id="nav-second" role="tabpanel" aria-labelledby="nav-second-tab">
+          This is the content on the second tab
+        </div>
+
+        <div class="tab-pane fade" id="nav-third" role="tabpanel" aria-labelledby="nav-third-tab">
+          Nothing on the third tab
+        </div>
+
+      </div>
+    </div> -->
+  <br>
+  <br>
+  <br>
+    <h2> Configure Trusted Account </h2>
+    <form>
+        <div class="form-group">
+          <label for="account-number">Account Number</label>
+          <input type="text" class="form-control" id="account-number" aria-describedby="emailHelp" placeholder="Account Number">
+          <small id="emailHelp" class="form-text text-muted">Please provide account details.</small>
+        </div>
+        <div class="form-group">
+          <label for="sort-code">Sort Code</label>
+          <input type="text" class="form-control" id="sort-code" placeholder="Sortcode">
+          <small id="emailHelp" class="form-text text-muted">Please provide sort code.</small>
+        </div>
+       
+
+        <div class="form-group">
+          <label class="sr-only">Questions</label>
+          <select id="reg_userquestion" class="form-control" name="user_question">
+            <option selected>Pay A Bill</option>
+            <option value="1">View Account</option>
+            <option value="2">View And Pay Bill</option>
+          </select>
+        </div>
+        
+        <div class="col-xs-6">
+            <div class="range">
+              <label class="form-check-label" for="Check1">Set Limit  &nbsp; &nbsp;</label>
+              <input type="range" name="range" min="1" max="100" value="50" onchange="range.value=value">
+              <output id="range">50</output>
+            </div>
+          </div>
+
+          <br>
+  <br>
+  <br>
+
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()" >Submit</button>
+      </form>
+
+    
+
+  </div>

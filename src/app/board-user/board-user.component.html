@@ -1,5 +1,125 @@
 <div class="container">
-  <header class="jumbotron">
-    <p>{{ content }}</p>
-  </header>
+  <div class="row m-0">
+    <div class="col-md-7 col-12">
+      <div class="row">
+        <div class="col-12 mb-4">
+          <div class="row box-right">
+            <div class="col-md-8 ps-0 ">
+              <p class="ps-3 textmuted fw-bold h6 mb-0">BALANCE</p>
+              <p class="h1 fw-bold d-flex"> <span
+                  class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>84,254 <span
+                  class="textmuted">.58</span> </p>
+              <p class="ms-3 px-2 bg-green">+10% since last month</p>
+            </div>
+            <div class="col-md-4">
+              <p class="p-blue"> <span class="fas fa-circle pe-2"></span>lending </p>
+              <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>1254 <span
+                  class="textmuted">.50</span> </p>
+              <p class="p-org"><span class="fas fa-circle pe-2"></span>over drafts</p>
+              <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span class="textmuted">.00</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 px-0">
+          <div class="box-right">
+            <div class="d-flex mb-2">
+              <p class="fw-bold">Statements</p>
+              <p class="ms-auto textmuted"><span class="fas fa-times"></span></p>
+            </div>
+            
+            <div class="row">
+              
+              <div class="col-6">
+                <p class="textmuted h8">From Date</p> <input class="form-control" type="text"
+                  placeholder="Oct 25, 2020">
+              </div>
+              <div class="col-6">
+                <p class="textmuted h8">To Date</p> <input class="form-control" type="text" placeholder="Oct 25, 2020">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-12 ps-md-5 p-0 ">
+      <div class="box-left">
+        
+        <div class="">
+          <p class="h7 fw-bold mb-1">Pay Someone</p>
+          <p class="textmuted h8 mb-2">Make payment for filling in the details</p>
+          <div class="form" name="form">
+            <div class="row">
+              <div class="col-12">
+                <div class="card border-0"> <input class="form-control " type="text" placeholder="Sort Code">
+                  <span class="far fa-credit-card"></span> </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="card border-0"> <input [(ngModel)]="form.accountNumber" class="form-control ps-5" type="text" placeholder="Account Number">
+                  <span class="far fa-credit-card"></span> </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="card border-0"> <input [(ngModel)]="form.amount" class="form-control ps-5" type="number" placeholder="Amount">
+                  <span class="far fa-credit-card"></span> </div>
+              </div>
+
+              <div class="col-12">
+                <div class="card border-0"> <input class="form-control ps-5" type="text" placeholder="Reference Text">
+                  <span class="far fa-credit-card"></span> </div>
+              </div>
+            </div>
+            <div class="btn btn-primary d-block h8"><button>Pay</button></div>
+            <!-- <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+              <div>
+                <label for="accountNumber">Account Number</label>
+                <input id="accountNumber" formControlName="accountNumber" [readonly]="true" />
+              </div>
+            
+              <div>
+                <label for="accountType">Account Type</label>
+                <input id="accountType" formControlName="accountType" [readonly]="true" />
+              </div>
+            
+              <div>
+                <label for="balance">Balance</label>
+                <input id="balance" formControlName="balance" [readonly]="true" />
+              </div>
+            
+              <div>
+                <label for="paymentAmount">Payment Amount</label>
+                <input id="paymentAmount" formControlName="paymentAmount" type="number" />
+                <div *ngIf="paymentForm.get('paymentAmount')?.invalid && paymentForm.get('paymentAmount')?.touched">
+                  Payment Amount is required and must be greater than 0.
+                </div>
+              </div>
+            
+              <div>
+                <label for="permission">Permission</label>
+                <input id="permission" formControlName="permission" [readonly]="true" />
+              </div>
+            
+              <div>
+                <label for="payment_limit">Payment Limit</label>
+                <input id="payment_limit" formControlName="payment_limit" [readonly]="true" />
+              </div>
+            
+              <div>
+                <label for="admin">Admin</label>
+                <input id="admin" formControlName="admin" type="checkbox" [disabled]="true" />
+              </div>
+            
+              <button type="submit">Submit Payment</button>
+            </form> -->
+          </div>
+
+          {{message}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+  

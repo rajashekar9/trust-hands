@@ -1,34 +1,64 @@
-<div class="container">
-  <div class="jumbotron">
-    <div class="row w-100">
-            <div class="col-md-3">
-                <div class="card border-info mx-sm-1 p-3">
-                    <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-car" aria-hidden="true"></span></div>
-                    <div class="text-info text-center mt-3"><h4>Balance</h4></div>
-                    <div class="text-info text-center mt-2"><h1>2340</h1></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card border-success mx-sm-1 p-3">
-                    <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-eye" aria-hidden="true"></span></div>
-                    <div class="text-success text-center mt-3"><h4>Savings</h4></div>
-                    <div class="text-success text-center mt-2"><h1>933</h1></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card border-danger mx-sm-1 p-3">
-                    <div class="card border-danger shadow text-danger p-3 my-card" ><span class="fa fa-heart" aria-hidden="true"></span></div>
-                    <div class="text-danger text-center mt-3"><h4>Expences</h4></div>
-                    <div class="text-danger text-center mt-2"><h1>346</h1></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card border-warning mx-sm-1 p-3">
-                    <div class="card border-warning shadow text-warning p-3 my-card" ><span class="fa fa-inbox" aria-hidden="true"></span></div>
-                    <div class="text-warning text-center mt-3"><h4>Invest</h4></div>
-                    <div class="text-warning text-center mt-2"><h1>346</h1></div>
-                </div>
-            </div>
-         </div>
-    </div>
+<div class="container d-block w-100 h-100" style="min-height: 600px">
+  <h1 class="m-5">List of accounts</h1>
+  <br />
+  <div
+    class="body d-flex align-items-center justify-content-center p-5 w-100 h-100"
+  >
+    <table
+      class="table table-hover table-striped bg-white"
+      *ngIf="accounts && accounts.length > 0; else noDataTemplate"
+    >
+      <thead>
+        <tr>
+          <!-- <th scope="col">SNo</th> -->
+          <th scope="col">Account Number</th>
+          <th scope="col">Account Type</th>
+          <th scope="col">Balance</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts">
+          <td><span [innerText]="account.accountNumber"></span></td>
+          <td><span [innerText]="account.accountType"></span></td>
+          <td><span [innerText]="account.balance"></span></td>
+          <td>
+            <button
+              class="btn btn-info w-50"
+              (click)="payBill(account)"
+              *ngIf="
+                account.permission === 'PAY_BILL'
+              "
+            >
+              Pay Bill
+            </button>
+            <button
+              class="btn btn-info w-50"
+              (click)="makePayment(account)"
+              *ngIf="
+                account.permission === 'MAKE_PAYMENT'
+              "
+            >
+              Make Payment
+            </button>
+            <button
+              class="btn btn-info w-50"
+              (click)="onSettings()"
+              *ngIf="account.permission === 'ADMIN'"
+            >
+              Settings
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<div *ngIf="actionType">
+    <make-payment [receivedAction]="actionType" (sendMessage)="onChildMessage($event)"></make-payment>
+</div>
+
+<ng-template #noDataTemplate>
+  <h4>We didn't find any accounts record! Please try after some time!</h4>
+</ng-template>

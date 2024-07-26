@@ -5,3 +5,8 @@
     top:-20px;
     border-radius:50%;
 }
+
+.table {
+    box-shadow: 0 5px 20px #0000000d;
+    border-radius: 10px;
+}

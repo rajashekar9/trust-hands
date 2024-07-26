@@ -1,9 +1,9 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-green">
-    <a href="#" class="navbar-brand">Trust Hands</a>
+    <a href="#" class="navbar-brand"><img src="../assets/Trust Hands.png" style="width: 150px;" alt="Trust Hands"></a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
+        <!-- <a href="/home" class="nav-link" routerLink="home">Home </a> -->
       </li>
       @if (showAdminBoard) {
         <li class="nav-item">
@@ -18,6 +18,9 @@
       @if (isLoggedIn) {
         <li class="nav-item">
           <a href="/dashboard" class="nav-link" >Accounts</a>
+        </li>
+        <li class="nav-item">
+          <a href="/analytics" class="nav-link" >Analytics</a>
         </li>
       }
     </ul>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import { Account } from '../models/account';
+import { Router } from '@angular/router';
+import { PaymentService } from '../_services/payment.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +11,12 @@ import { UserService } from '../_services/user.service';
 })
 export class HomeComponent implements OnInit {
   content?: string;
+  actionType: string = '';
+  childMessage: string = '';
 
-  constructor(private userService: UserService) { }
+  accounts: any = []
+
+  constructor(private userService: UserService, private router: Router, private paymentService:PaymentService) { }
 
   ngOnInit(): void {
     this.userService.getPublicContent().subscribe({
@@ -30,5 +37,26 @@ export class HomeComponent implements OnInit {
         }
       }
     });
+
+    this.accounts= this.paymentService.getAllAccounts()
   }
+
+  makePayment(account: Account): void {
+    this.actionType = 'makeTransaction';
+    this.router.navigate(['/payments'])
+  }
+
+  payBill(account: Account): void {
+    this.actionType = 'payBill';
+    this.router.navigate(['/payments'])
+  }
+
+  onSettings() {
+    this.router.navigate(['/settings']);
+  }
+
+  onChildMessage(message: any): void {
+    this.childMessage = message;
+  }
+
 }

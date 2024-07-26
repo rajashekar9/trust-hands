@@ -17,6 +17,8 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './store/reducers/user.reducer';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MakePaymentComponent } from './make-payment/make-payment.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BoardModeratorComponent,
     BoardUserComponent,
     DashboardComponent,
+    MakePaymentComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

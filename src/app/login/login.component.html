@@ -1,11 +1,17 @@
-<div class="col-md-12">
-  <div class="card card-container">
+
+<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+  <div class="card border-0 shadow rounded-3 my-5">
+
+    <div class="card-body p-4 p-sm-5">
+      
+    @if (!isLoggedIn) {
+      <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
+
     <img
       id="profile-img"
       src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
       class="profile-img-card"
     />
-    @if (!isLoggedIn) {
     <form
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
@@ -64,6 +70,7 @@
     } @else {
     <div class="alert alert-success">Logged in as {{ roles }}.</div>
     }
+    </div>
   </div>
 </div>
 
